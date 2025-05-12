@@ -179,3 +179,17 @@ body {
   padding: 0;
   text-align: center;
 }
+
+#slideVideo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: transparent;
+}
+
+#myVideo {
+  max-height: 100%;
+  max-width: 100%;
+  height: auto;
+}
