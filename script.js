@@ -15,7 +15,7 @@ function playMusic() {
     minute = second * 60,
     hour = minute * 60,
     day = hour * 24;
-  let countDown = new Date('May 13, 2024 00:00:00').getTime(),
+  let countDown = new Date('May 13, 2025 10:00:00').getTime(),
     x = setInterval(function () {
       let now = new Date().getTime(),
         distance = countDown - now;
