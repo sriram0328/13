@@ -15,7 +15,7 @@ function playMusic() {
     minute = second * 60,
     hour = minute * 60,
     day = hour * 24;
-  let countDown = new Date('May 13, 2024 10:00:00').getTime(),
+  let countDown = new Date('May 13, 2025 10:00:00').getTime(),
     x = setInterval(function () {
       let now = new Date().getTime(),
         distance = countDown - now;
@@ -71,7 +71,7 @@ function playMusic() {
           _slideTiga();
         }, 1000);
       })
-    }, 5000);
+    }, 50000);
   };
   
   const _slideTiga = function () {
@@ -90,7 +90,7 @@ function playMusic() {
           _slideEmpat();
         }, 1000);
       })
-    }, 5000);
+    }, 50000);
   }
   
   function getRandomPosition(element) {
@@ -150,7 +150,7 @@ const _slideLima = function () {
     }).go();
   }, 1000);
 
-  // After 20 seconds, start transition out
+  // After 3 seconds, start transition out
   setTimeout(() => {
     slideLima.classList.add('animate__delay-3s');
     slideLima.classList.replace('animate__bounceIn', 'animate__fadeOut');
