@@ -15,7 +15,7 @@ function playMusic() {
     minute = second * 60,
     hour = minute * 60,
     day = hour * 24;
-  let countDown = new Date('May 13, 2025 10:00:00').getTime(),
+  let countDown = new Date('May 13, 2024 10:00:00').getTime(),
     x = setInterval(function () {
       let now = new Date().getTime(),
         distance = countDown - now;
@@ -30,7 +30,7 @@ function playMusic() {
         confetti();
         clearInterval(x);
         _slideSatu();
-      }
+      } 
   
     }, second)
   
@@ -71,7 +71,7 @@ function playMusic() {
           _slideTiga();
         }, 1000);
       })
-    }, 40000);
+    }, 5000);
   };
   
   const _slideTiga = function () {
@@ -90,7 +90,7 @@ function playMusic() {
           _slideEmpat();
         }, 1000);
       })
-    }, 43000);
+    }, 5000);
   }
   
   function getRandomPosition(element) {
@@ -123,7 +123,69 @@ function playMusic() {
       }, 1000);
     })
   };
-  
+
+
+const _slideLima = function () {
+  const slideLima = document.getElementById('slideLima');
+  slideLima.classList.remove('d-none');
+
+  const trims = document.getElementById('trims');
+
+  setTimeout(() => {
+    // Reset trims content & animation
+    trims.classList.remove('d-none', 'animate__fadeOut', 'animate__delay-3s');
+    trims.innerHTML = ''; // Clear any old content
+
+    // Create a fresh span inside #trims to attach TypeIt
+    const typeTarget = document.createElement('span');
+    typeTarget.id = 'typeTarget';
+    trims.appendChild(typeTarget);
+
+    // Start typing
+    new TypeIt("#typeTarget", {
+      strings: ["ILUuuuuu Vrooooo alwaysss my dumb kiddooo🫶🏻"],
+      speed: 40,
+      loop: false,
+      waitUntilVisible: true,
+    }).go();
+  }, 1000);
+
+  // After 20 seconds, start transition out
+  setTimeout(() => {
+    slideLima.classList.add('animate__delay-3s');
+    slideLima.classList.replace('animate__bounceIn', 'animate__fadeOut');
+
+    trims.classList.add('animate__animated', 'animate__fadeOut', 'animate__delay-3s');
+
+    setTimeout(() => {
+      trims.remove();
+      setTimeout(() => {
+        slideLima.remove();
+        _slideVideo(); // Proceed to next slide
+      }, 1000);
+    }, 6000);
+  }, 3000); // Wait 3 seconds
+};
+
+
+
+const _slideVideo = function () {
+  const slideVideo = document.getElementById("slideVideo");
+  const video = document.getElementById("myVideo");
+
+  slideVideo.classList.remove("d-none");
+
+  video.addEventListener("ended", function () {
+    slideVideo.classList.replace("animate__fadeIn", "animate__fadeOut");
+
+    setTimeout(() => {
+      slideVideo.remove();
+      _slideEnam();
+    }, 1000);
+  });
+};
+
+  /*
   const _slideLima = function () {
     const slideLima = document.getElementById('slideLima');
     slideLima.classList.remove('d-none');
@@ -146,6 +208,8 @@ function playMusic() {
       }, 6000);
     });
   };
+
+  */
   
   const _slideEnam = function () {
     const slideEnam = document.getElementById('slideEnam');
@@ -167,7 +231,7 @@ function playMusic() {
     waitUntilVisible: true
   }).go();
   
-  
+/*  
   new TypeIt("#trims", {
     strings: ["ILUuuuuu Vrooooo alwaysss my dumb kiddooo🫶🏻"],
     startDelay: 2000,
@@ -176,7 +240,7 @@ function playMusic() {
     waitUntilVisible: true,
   }).go();
   
-  
+  */
   
   'use strict';
   
